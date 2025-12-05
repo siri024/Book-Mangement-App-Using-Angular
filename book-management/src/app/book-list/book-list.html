@@ -1,0 +1,7 @@
+<div *ngIf="!isLoading && !error" class="book-grid">
+  <app-book-card
+    *ngFor="let book of books"
+    [book]="book"
+    (select)="onBookSelected($event)"
+  ></app-book-card>
+</div>

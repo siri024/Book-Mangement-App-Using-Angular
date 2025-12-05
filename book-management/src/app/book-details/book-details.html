@@ -1,0 +1,36 @@
+<div class="details-container" *ngIf="!isLoading && !error && book">
+  <div class="header-section">
+    <img [src]="book.image" [alt]="book.title" class="book-cover" />
+
+    <div class="info">
+      <h1>{{ book.title }}</h1>
+      <h3>{{ book.subtitle }}</h3>
+      <p class="author">By {{ book.authors }}</p>
+
+      <div class="meta">
+        <p><strong>Published:</strong> {{ book.publishedDate | date : 'longDate' }}</p>
+        @if (book.publisher) {
+        <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+        }
+
+        <p *ngIf="book.publisher"><strong>Publisher:</strong> {{ book.publisher }}</p>
+        <p *ngIf="book.category"><strong>Category:</strong> {{ book.category }}</p>
+        <p *ngIf="book.language"><strong>Language:</strong> {{ book.language }}</p>
+        <p *ngIf="book.pages"><strong>Pages:</strong> {{ book.pages }}</p>
+        <p *ngIf="book.rating"><strong>Rating:</strong> ⭐ {{ book.rating }}</p>
+        <p *ngIf="book.price"><strong>Price:</strong> ₹{{ book.price }}</p>
+      </div>
+
+      <button class="primary" (click)="router.navigate(['/books'])">Back</button>
+      <button class="danger" (click)="deleteBook()">Delete Book</button>
+    </div>
+  </div>
+
+  <div class="description-section" *ngIf="book.description">
+    <h2>Description</h2>
+    <p>{{ book.description }}</p>
+  </div>
+
+  <p *ngIf="isLoading">Loading book details...</p>
+  <p *ngIf="error">{{ error }}</p>
+</div>

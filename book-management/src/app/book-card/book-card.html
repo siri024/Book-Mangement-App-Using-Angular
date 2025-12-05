@@ -1,0 +1,9 @@
+<div class="book-cover-card" (click)="onClick()">
+  <div class="image-box">
+    <img [src]="book.image" [alt]="book.title" />
+    <div class="overlay">
+      <h3>{{ book.title }}</h3>
+      <p>{{ book.authors }}</p>
+    </div>
+  </div>
+</div>

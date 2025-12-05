@@ -1,0 +1,57 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    /* BLUE GRADIENT */
+    padding: 14px 40px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+}
+
+nav li {
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    /* White text */
+    padding: 6px 0;
+    transition: 0.2s ease;
+}
+
+/* Hover color */
+nav li:hover {
+    color: #ffec99;
+    /* light yellow */
+}
+
+/* Animated underline */
+nav li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: #ffec99;
+    border-radius: 4px;
+    transition: width 0.25s ease;
+}
+
+nav li:hover::after {
+    width: 100%;
+}
